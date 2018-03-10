@@ -29,3 +29,6 @@ opam install coq.8.6.1 && opam pin add coq 8.6.1
 for file in .tmux.conf .bash_profile .spacemacs .dir_colors; do
   cp /vagrant/files/$file ~/
 done
+
+git config --global user.email "johnbender@protonmail.com"
+git config --global user.name "John Bender"
