@@ -30,5 +30,7 @@ for file in .tmux.conf .bash_profile .spacemacs .dir_colors; do
   cp /vagrant/files/$file ~/
 done
 
+cp /vagrant/files/ssh-config ~/.ssh/config
+
 git config --global user.email "johnbender@protonmail.com"
 git config --global user.name "John Bender"
