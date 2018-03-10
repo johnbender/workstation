@@ -1,0 +1,15 @@
+diff --git a/generic/proof-faces.el b/generic/proof-faces.el
+index 0eafc07..e6fc528 100644
+--- a/generic/proof-faces.el
++++ b/generic/proof-faces.el
+@@ -75,7 +75,9 @@ not listed here, you may not get the correct syntax colouring behaviour.")
+    ;; to the type of display you have.
+    (:background "#eaf8ff")
+    (:background "darkslateblue")
+-   (:underline t))
++   (:background "#e7e7fc")
++   ;;(:underline t)
++   )
+   "*Face for locked region of proof script (processed commands)."
+   :group 'proof-faces)
+ 
