@@ -1,15 +1,34 @@
 diff --git a/generic/proof-faces.el b/generic/proof-faces.el
-index 0eafc07..e6fc528 100644
+index 92609d4..84a40c7 100644
 --- a/generic/proof-faces.el
 +++ b/generic/proof-faces.el
-@@ -75,7 +75,9 @@ not listed here, you may not get the correct syntax colouring behaviour.")
+@@ -72,7 +72,7 @@ not listed here, you may not get the correct syntax colouring behaviour.")
+   (proof-face-specs
+    (:background "mistyrose") ;; was "darksalmon" in PG 3.4,3.5
+    (:background "mediumorchid")
+-   (:foreground "white" :background "black"))
++   (:background "mistyrose"))
+   "*Face for commands in proof script waiting to be processed."
+   :group 'proof-faces)
+ 
+@@ -80,9 +80,9 @@ not listed here, you may not get the correct syntax colouring behaviour.")
+   (proof-face-specs
+    ;; This colour is quite subjective and may be best chosen according
     ;; to the type of display you have.
-    (:background "#eaf8ff")
+-   (:background "#eaf8ff")
++   (:background "#e7e7fc")
     (:background "darkslateblue")
 -   (:underline t))
-+   (:background "#e7e7fc")
-+   ;;(:underline t)
-+   )
++   (:background "#e7e7fc"))
    "*Face for locked region of proof script (processed commands)."
    :group 'proof-faces)
  
+@@ -108,7 +108,7 @@ Exactly what uses this face depends on the proof assistant."
+   (proof-face-specs
+    (:foreground "darkblue")
+    (:foreground "mediumpurple")
+-   (:underline t))
++   (:foreground "darkblue"))
+   "*Face for names of tactics in proof scripts.
+ Exactly what uses this face depends on the proof assistant."
+   :group 'proof-faces)
