@@ -15,23 +15,27 @@ alias gco='git checkout'
 alias gcp='git cherry-pick'
 alias grec='git-reconcile'
 
+# battery information
+alias battery="upower -i $(upower -e | grep BAT0) | grep percentage | sed 's/.*\([0-9]\{2\}\)/\1/'"
+
 BROWN="\[\033[0;33m\]"
 PS_CLEAR="\[\033[0m\]"
 BLUE="\[\033[0;34m\]"
 
 parse_git_branch() {
-    [ -d .git ] || return 1
-    git symbolic-ref HEAD 2> /dev/null | sed 's#\(.*\)\/\([^\/]*\)$# \2#'
+  git symbolic-ref HEAD 2> /dev/null | sed 's#\(.*\)\/\([^\/]*\)$# \2#'
 }
 
 prompt_color() {
-    PS1="$(whoami)@$(hostname) ${BLUE}\W${BROWN}\$(parse_git_branch)${PS_CLEAR} : "
-    PS2="\[[33;1m\]continue \[[0m[1m\]> "
+  PS1="$(whoami)@$(hostname) ${BLUE}\W${BROWN}\$(parse_git_branch)${PS_CLEAR} : "
+  PS2="\[[33;1m\]continue \[[0m[1m\]> "
 }
 
 # Prevent "dumb" terminals from getting colors, e.g. Tramp
 if [ $TERM != "dumb" ] && [ -n "$PS1" ]; then
-    prompt_color
-    eval `dircolors ~/.dir_colors`
-    alias ls='ls --color=auto'
+  prompt_color
+  eval `dircolors ~/.dir_colors`
+  alias ls='ls --color=auto'
 fi
+
+export TZ=America/Los_Angeles
