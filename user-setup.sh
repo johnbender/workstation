@@ -1,3 +1,5 @@
+scrip_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 pip install powerline-status
 
 if ! [ -d ~/.emacs.d ]; then
@@ -17,7 +19,7 @@ if ! [ -d ~/.emacs.d/private/local/proof-general ]; then
 fi
 
 cd ~/.emacs.d/private/local/proof-general
-patch -p1 < /vagrant/files/pg-underline.patch
+patch -p1 < "$script_dir/files/pg-underline.patch"
 cd -
 
 # NOTE this will require 4 gigs of ram :(
@@ -27,10 +29,14 @@ opam repo add coq-released http://coq.inria.fr/opam/released
 opam install coq.8.6.1 && opam pin add coq 8.6.1
 
 for file in .tmux.conf .bash_profile .spacemacs .dir_colors; do
-  cp /vagrant/files/$file ~/
+  cp "$script_dir/files/$file" ~/
 done
 
-cp /vagrant/files/ssh-config ~/.ssh/config
+cp "$script_dir/files/ssh-config" ~/.ssh/config
+
+mkdir -p ~/.bin
+cp "$script_dir/files/tmux-workspace" ~/.bin/
+chmod +x ~/.bin/*
 
 git config --global user.email "johnbender@protonmail.com"
 git config --global user.name "John Bender"
