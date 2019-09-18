@@ -1,0 +1,9 @@
+set -e
+
+for session in research; do
+  local_session_name="$session"
+  if ! tmux ls | grep "$local_session_name"; then
+    tmux new-session -d -s $local_session_name
+    tmux send -t $local_session_name "cd ~/Projects/$local_session_name; clear" ENTER
+  fi
+done
